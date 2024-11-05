@@ -6,7 +6,6 @@ from tkinter import messagebox
 from tkinter import PhotoImage
 import subprocess
 import os
-import pyperclip
 import platform
 #vars
 
@@ -37,8 +36,7 @@ def Os():
 if Os()=="Windows":
     root.iconbitmap("appicon-rendered.ico")
 def copy():
-    messagebox.showinfo("Внимание","Ссылка на GitHub скопирована в буфер обмена")
-    pyperclip.copy("https://github.com/average8274")
+    messagebox.showinfo("GitHub","https://github.com/average8274")
 def helpwindow():
     if Os()=="Windows":
         os.startfile("help.pyw")
