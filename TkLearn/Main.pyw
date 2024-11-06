@@ -93,4 +93,3 @@ buttons_about.pack()
 buttons_githublink.pack(pady=100)
 #over
 root.mainloop()
-#no further code will be executed beyond line above
