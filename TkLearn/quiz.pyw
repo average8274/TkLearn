@@ -32,7 +32,7 @@ file.close()
 file=open("cache/current.cache", "w")
 file.write("1")
 file.close()
-print("successfully identified the quiz")
+#print("successfully identified the quiz")
 if Os()=="Windows":
     os.startfile("question.pyw")
 else:

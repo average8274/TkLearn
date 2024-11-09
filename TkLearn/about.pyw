@@ -16,7 +16,7 @@ h = 700
 x = (ws/2) - (w/2)
 y = (hs/2) - (h/2)
 root.geometry('%dx%d+%d+%d' % (w, h, x, y))
-root.resizable(True, False)
+root.resizable(True, True)
 root.title("Системная информация")
 backx32=PhotoImage(file = r"assets/backx32.png")
 #define functions
@@ -35,7 +35,8 @@ def back():
 buttonex=Button(root, image=backx32, width=35, compound="left", font=("Consolas", 11),command=back)
 buttonex.pack(anchor="nw")
 #vars
-label=Label(root, text="Билд: public01", font=("Consolas", 15)).pack()
+label=Label(root, text="Билд: v1.0.1 от 09-NOV-2024", font=("Consolas", 15)).pack()
+label=Label(root, text="Регулярно проверяйте наличие обновлений на GitHub", font=("Consolas", 15)).pack()
 label=Label().pack(pady=20)
 txt="Платформа: "+str(platform.system())
 label=Label(root, text=txt, font=("Consolas", 12)).pack()
@@ -49,6 +50,6 @@ txt="ОЗУ: "+str(round(psutil.virtual_memory().total / (1024.0 **3)))+" ГБ"
 label=Label().pack(pady=20)
 label=Label(root, text="Мы не собираем никакой информации о вашей системе", font=("Consolas", 12)).pack()
 label=Label(root, text="Прикрепите скриншот этой страницы если хотите сообщить об ошибке", font=("Consolas", 12)).pack()
-label=Label(root, text="Это окно можно масштабировать горизонтально", font=("Consolas", 12)).pack()
+label=Label(root, text="Это окно можно масштабировать", font=("Consolas", 12)).pack()
 #over
 root.mainloop()
