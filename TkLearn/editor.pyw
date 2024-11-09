@@ -31,7 +31,7 @@ for i in range(len(elements)):
         file=open(path, "r", encoding="utf-8")
         file.close()
     except:
-        print("file doesn't exist")
+        #print("file doesn't exist")
         file=open(path, "w", encoding="utf-8")
         file.close()
 scrollbar = Scrollbar(root)
