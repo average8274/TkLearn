@@ -49,8 +49,8 @@ else:
 #    while window=="0":
 #        file=open("cache/current.cache", "w")   #I HAVE NO IDEA WHY IT WORKS, JUST DON'T TOUCH IT!
 #        file.write(str(current))                #HECK! IT ONLY WORKS ON LINUX!
-#        file.close()
-#        if window=="0":
+#        file.close()                            #To be revised. Saved as a working piece of code to be reused, and as a tribute to my ingenuity
+#        if window=="0":                         
 #            if Os()=="Windows":
 #                print("quiz launches a window")
 #                #os.startfile("question.pyw")

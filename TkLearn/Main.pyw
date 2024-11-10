@@ -37,13 +37,13 @@ if Os()=="Windows":
     root.iconbitmap("appicon-rendered.ico")
 def copy():
     messagebox.showinfo("GitHub","https://github.com/average8274")
-def helpwindow():
-    if Os()=="Windows":
-        os.startfile("help.pyw")
-        root.destroy()
-    else:
-        root.destroy()
-        os.system("python3 ~/Desktop/TkLearn/TkLearn/help.pyw")
+#def helpwindow():                                                              #Removed feature, code reserved for new functions
+#    if Os()=="Windows":
+#        os.startfile("help.pyw")
+#        root.destroy()
+#    else:
+#        root.destroy()
+#        os.system("python3 ~/Desktop/TkLearn/TkLearn/help.pyw")
 def about():
     if Os()=="Windows":
         os.startfile("about.pyw")
@@ -77,7 +77,7 @@ labels_title=Label(root, text="Добро пожаловать в TkLearn!", fon
 labels_plain=Label(root)
 buttons_githublink=Button(root, text="GitHub",font=("Consolas",10), image=gitx32,compound="left", command=copy)
 buttons_about=Button(root, text="О программе", image=infox32, compound="left", font=("Consolas",11),command=about)
-buttons_help=Button(root,text="Помощь", font=("Consolas",11),width=18,command=helpwindow)
+#buttons_help=Button(root,text="Помощь", font=("Consolas",11),width=18,command=helpwindow)
 buttons_dictionary=Button(root,text="Словарь", font=("Consolas",20), image=bookx32, width=400, compound="left", command=dictionary)
 buttons_quiz=Button(root,text="Викторина", font=("Consolas",20), image=quizx32, width=400, compound="left",command=quiz)
 buttons_stats=Button(root,text="Статистика", font=("Consolas",20), image=statsx32, width=400, compound="left",command=stats)
