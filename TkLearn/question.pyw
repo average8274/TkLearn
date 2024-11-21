@@ -26,7 +26,7 @@ arrowx32=PhotoImage(file = r"assets/arrowx32.png")
 file=open("cache/window.cache", "w")
 file.write("1")
 file.close()
-#compatibility stuff, dat makes everything under da hood run both on Doors and Penguins... I mean Windows and Linux. Mac OS just could go f
+
 def Os():
     return platform.system()
 if Os()=="Windows":
