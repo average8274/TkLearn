@@ -45,7 +45,7 @@ label=Label(root, text=txt, font=("Consolas", 12)).pack()
 txt=f"ОС: {uname().system} {uname().release}, {uname().version}"
 label=Label(root, text=txt, font=("Consolas", 12)).pack()
 txt="Архитектура (процессор): "+str(platform.machine())+'('+str(platform.processor())+')'
-label=Label(root, text=txt, font=("Consolas", 12)).pack()
+#label=Label(root, text=txt, font=("Consolas", 12)).pack()
 txt="ОЗУ: "+str(round(psutil.virtual_memory().total / (1024.0 **3)))+" ГБ"
 label=Label().pack(pady=20)
 label=Label(root, text="Мы не собираем никакой информации о вашей системе", font=("Consolas", 12)).pack()
