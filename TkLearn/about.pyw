@@ -4,7 +4,7 @@ from tkinter import messagebox
 import subprocess
 import platform
 from tkinter import PhotoImage
-import psutil
+#import psutil
 from platform import uname
 import os
 #window setup
