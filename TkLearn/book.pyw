@@ -35,9 +35,11 @@ def back():
 def add():
     a = "=" in entry1.get()
     b = "=" in entry2.get()
+    value1=(entry1.get()).strip()
+    value2=(entry2.get()).strip()
     if a == False and b == False:
         file=open("dictionaries/"+dict+".dic", "a+")
-        value=("\n"+entry1.get()+"="+entry2.get())
+        value=("\n"+value1+"="+value2)
         file.write(value)
         file.close()
         if Os()=="Windows":
