@@ -63,9 +63,20 @@ edit=Button(root, image=booksx32, width=150, compound="left", text="Управл
 try:
     file=open("dictionaries/.ini.dic", "r", encoding="utf-8")
     file.close()
+    file=open("dictionaries/.ini.dic", "a+", encoding="utf-8")
+    if "mistakes" in file.read() == False:
+        file.write("mistakes"+"\n")
 except:
     file=open("dictionaries/.ini.dic", "w", encoding="utf-8")
+    file.write("mistakes"+"\n")
     file.close()
+try:
+    file=open("dictionaries/mistakes.dic", "r", encoding="utf-8")
+    file.close()
+except:
+    file=open("dictionaries/mistakes.dic", "w", encoding="utf-8")
+    file.close()
+
 #########
 file=open("dictionaries/.ini.dic", "r", encoding="utf-8")
 for line in file:                                               #list all elements in an array

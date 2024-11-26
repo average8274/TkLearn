@@ -19,6 +19,7 @@ root.geometry('%dx%d+%d+%d' % (w, h, x, y))
 root.resizable(False, False)
 root.title("Вопрос")
 backx32=PhotoImage(file = r"assets/backx32.png")
+bulbx32=PhotoImage(file = r"assets/bulbx32.png")
 submitx32=PhotoImage(file = r"assets/submitx32.png")
 nextx32=PhotoImage(file = r"assets/nextx32.png")
 crossx32=PhotoImage(file = r"assets/crossx32.png")
@@ -36,6 +37,9 @@ if Os()=="Windows":
 file=open("cache/checked.cache","w")
 file.write("0")
 file.close()
+def hint():
+    hinttext="Первая буква - "+correct[0]
+    messagebox.showinfo("Подсказка",hinttext)
 def skip():
     file=open("cache/current.cache", "r")
     current=int(file.readline())
@@ -71,7 +75,7 @@ def submit():
     file.close()
     if checked=="0":
         answer=((entry.get()).strip())
-        if answer==correct:             #telemetry is a bit in development just yet
+        if answer==correct:             
             try:
                 file=open("telemetry/correct.tele", "r")
                 temp=int(file.readline())
@@ -101,6 +105,14 @@ def submit():
             file.close()
             label=Label(root, image=tickx32, compound="left", fg="green", text="Верно!", font=("Consolas",18)).pack(pady=10)
         else:
+            try:
+                file = open("dictionaries/mistakes.dic", "r")
+            except:
+                file = open("dictionaries/mistakes.dic", "w")
+            file.close()
+            file = open("dictionaries/mistakes.dic", "a+")
+            file.write(word+"="+correct+"\n")
+            file.close()    
             try:
                 file=open("telemetry/n-correct.tele", "r")
                 temp=int(file.readline())
@@ -250,7 +262,9 @@ submitbutton=Button(root, image=submitx32, width=150, compound="left", text="П�
 submitbutton.pack()
 exitbutton=Button(root, image=nextx32, width=150, compound="left", text="Далее", command=exitt)
 skipbutton=Button(root, image=arrowx32, width=150, compound="left", text="Пропустить", command=skip)
-skipbutton.pack(pady=10)
+hintbutton=Button(root, image=bulbx32, width=130, compound="left", text="Подсказка", command=hint)
+hintbutton.pack()
+skipbutton.pack(pady=15)
 #over
 root.mainloop()
 

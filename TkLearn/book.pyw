@@ -40,7 +40,7 @@ def add():
     value2=(entry2.get()).strip()
     if a == False and b == False:
         file=open("dictionaries/"+dict+".dic", "a+")
-        value=("\n"+value1+"="+value2)
+        value=(value1+"="+value2+"\n")
         file.write(value)
         file.close()
         if Os()=="Windows":

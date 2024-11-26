@@ -58,7 +58,7 @@ def back():
 def add():
     if entry.get() not in elements:
         file=open("dictionaries/.ini.dic", "a+")
-        value=("\n"+entry.get())
+        value=(entry.get()+"\n")
         file.write(value)
         file.close()
         if Os()=="Windows":
