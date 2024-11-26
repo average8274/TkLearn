@@ -35,7 +35,7 @@ def back():
 buttonex=Button(root, image=backx32, width=35, compound="left", font=("Consolas", 11),command=back)
 buttonex.pack(anchor="nw")
 #vars
-label=Label(root, text="Билд: v1.0.1 от 09-NOV-2024", font=("Consolas", 15)).pack()
+label=Label(root, text="Билд: v1.0.2 от 26-NOV-2024", font=("Consolas", 15)).pack()
 label=Label(root, text="Регулярно проверяйте наличие обновлений на GitHub", font=("Consolas", 15)).pack()
 label=Label().pack(pady=20)
 txt="Платформа: "+str(platform.system())
