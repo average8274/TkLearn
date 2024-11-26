@@ -69,7 +69,7 @@ def submit():
     checked=file.readline()
     file.close()
     if checked=="0":
-        answer=((entry.get()).replace(" ", "")).lower()
+        answer=((entry.get()).strip())
         if answer==correct:             #telemetry is a bit in development just yet
             try:
                 file=open("telemetry/correct.tele", "r")
