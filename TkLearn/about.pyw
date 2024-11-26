@@ -7,6 +7,7 @@ from tkinter import PhotoImage
 #import psutil
 from platform import uname
 import os
+from os import getcwd
 #window setup
 root=Tk()
 ws = root.winfo_screenwidth() 
@@ -30,7 +31,7 @@ def back():
         root.destroy()
     else:
         root.destroy()
-        os.system("python3 ~/Desktop/TkLearn/TkLearn/Main.pyw")
+        os.system('python3 '+str(getcwd())+'/Main.pyw')
 #interface setup
 buttonex=Button(root, image=backx32, width=35, compound="left", font=("Consolas", 11),command=back)
 buttonex.pack(anchor="nw")

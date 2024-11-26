@@ -5,6 +5,7 @@ import subprocess
 import platform
 import random
 import os
+from os import getcwd
 from tkinter import PhotoImage
 #window setup
 root=Tk()
@@ -48,7 +49,7 @@ def skip():
             root.destroy()
         else:
             root.destroy()
-            os.system("python3 ~/Desktop/TkLearn/TkLearn/endquiz.pyw")
+            os.system('python3 '+str(getcwd())+'/endquiz.pyw')
     else:
         file=open("cache/current.cache", "r")
         current=int(file.readline())
@@ -63,7 +64,7 @@ def skip():
             root.destroy()
         else:
             root.destroy()
-            os.system("python3 ~/Desktop/TkLearn/TkLearn/question.pyw")
+            os.system('python3 '+str(getcwd())+'/question.pyw')
 def submit():
     file=open("cache/checked.cache","r")
     checked=file.readline()
@@ -146,7 +147,7 @@ def exitt():
             root.destroy()
         else:
             root.destroy()
-            os.system("python3 ~/Desktop/TkLearn/TkLearn/endquiz.pyw")
+            os.system('python3 '+str(getcwd())+'/endquiz.pyw')
     else:
         file=open("cache/current.cache", "r")
         current=int(file.readline())
@@ -161,7 +162,7 @@ def exitt():
             root.destroy()
         else:
             root.destroy()
-            os.system("python3 ~/Desktop/TkLearn/TkLearn/question.pyw")
+            os.system('python3 '+str(getcwd())+'/question.pyw')
 #vars
 elements=[]
 file=open("cache/dict.cache", "r")

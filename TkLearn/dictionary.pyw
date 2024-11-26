@@ -4,6 +4,7 @@ from tkinter import messagebox
 from tkinter import ttk
 import subprocess
 import os
+from os import getcwd
 import platform
 #window setup
 root=Tk()
@@ -38,7 +39,7 @@ def submission():
             root.destroy()
         else:
             root.destroy()
-            os.system("python3 ~/Desktop/TkLearn/TkLearn/book.pyw")
+            os.system('python3 '+str(getcwd())+'/book.pyw')
     else:
         messagebox.showerror("Ошибка", "Введено недействительное значение")
 def back():
@@ -47,14 +48,14 @@ def back():
         root.destroy()
     else:
         root.destroy()
-        os.system("python3 ~/Desktop/TkLearn/TkLearn/Main.pyw")
+        os.system('python3 '+str(getcwd())+'/Main.pyw')
 def bookeditor():
     if Os()=="Windows":
         os.startfile("editor.pyw")
         root.destroy()
     else:
         root.destroy()
-        os.system("python3 ~/Desktop/TkLearn/TkLearn/editor.pyw")
+        os.system('python3 '+str(getcwd())+'/editor.pyw')
 #interface setup
 submit=Button(root, image=submitx32, width=150, compound="left", text="Подтвердить", font=("Consolas", 13), command=submission)
 edit=Button(root, image=booksx32, width=150, compound="left", text="Управлять", font=("Consolas", 13), command=bookeditor)

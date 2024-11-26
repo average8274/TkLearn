@@ -4,6 +4,7 @@ from tkinter import messagebox
 from tkinter import ttk
 import subprocess
 import os
+from os import getcwd
 import platform
 from tkinter import PhotoImage
 #window setup
@@ -45,7 +46,7 @@ def submission():
                     root.destroy()
                 else:
                     root.destroy()
-                    os.system("python3 ~/Desktop/TkLearn/TkLearn/quiz.pyw")
+                    os.system('python3 '+str(getcwd())+'/quiz.pyw')
             else:
                 messagebox.showerror("Ошибка", "Введите натуральное число")
         except:
@@ -58,7 +59,7 @@ def back():
         root.destroy()
     else:
         root.destroy()
-        os.system("python3 ~/Desktop/TkLearn/TkLearn/Main.pyw")
+        os.system('python3 '+str(getcwd())+'/Main.pyw')
 #interface setup
 buttonex=Button(root, text="Назад", font=("Consolas", 11),command=back)
 submit=Button(root, image=submitx32, width=150, compound="left", text="Подтвердить", font=("Consolas", 13), command=submission)

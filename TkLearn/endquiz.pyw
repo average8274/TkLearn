@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import messagebox
 import subprocess
 import os
+from os import getcwd
 import platform
 from tkinter import PhotoImage
 #window setup
@@ -33,7 +34,7 @@ def back():
         root.destroy()
     else:
         root.destroy()
-        os.system("python3 ~/Desktop/TkLearn/TkLearn/Main.pyw")
+        os.system('python3 '+str(getcwd())+'/Main.pyw')
 #wrap up plain interface
 label=Label(root, text="Итог:", font=("Consolas",18)).pack(pady=10)
 file=open("cache/correct.cache", "r")

@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import messagebox
 import subprocess
 import os
+from os import getcwd
 import platform
 from tkinter import PhotoImage
 #window setup
@@ -31,7 +32,7 @@ def back():
         root.destroy()
     else:
         root.destroy()
-        os.system("python3 ~/Desktop/TkLearn/TkLearn/dictionary.pyw")
+        os.system('python3 '+str(getcwd())+'/dictionary.pyw')
 def add():
     a = "=" in entry1.get()
     b = "=" in entry2.get()
@@ -47,7 +48,7 @@ def add():
             root.destroy()
         else:
             root.destroy()
-            os.system("python3 ~/Desktop/TkLearn/TkLearn/book.pyw")
+            os.system('python3 '+str(getcwd())+'/book.pyw')
     else:
         messagebox.showerror("Ошибка", "Значение не может содержать символ '=' ")
 def remove():
@@ -67,7 +68,7 @@ def remove():
         root.destroy()
     else:
         root.destroy()
-        os.system("python3 ~/Desktop/TkLearn/TkLearn/book.pyw")
+        os.system('python3 '+str(getcwd())+'/book.pyw')
 #interface setup
 label=Label(root,text="=",font=("Consolas",14))
 entry1=Entry(root, width=15)
