@@ -75,7 +75,7 @@ def submit():
     file.close()
     if checked=="0":
         answer=((entry.get()).strip())
-        if answer==correct:             
+        if answer.lower()==correct.lower():             
             try:
                 file=open("telemetry/correct.tele", "r")
                 temp=int(file.readline())
