@@ -31,6 +31,9 @@ def back():
     else:
         root.destroy()
         os.system('python3 '+str(getcwd())+'/Main.pyw')
+def backesc(placeholder):
+    back()
 button=Button(root, text="Назад", font=("Consolas", 11),command=back)
 button.pack(pady=10)
+root.bind("<Escape>", backesc)
 root.mainloop()

@@ -36,6 +36,8 @@ def back():
     else:
         root.destroy()
         os.system('python3 '+str(getcwd())+'/Main.pyw')
+def backesc(placeholder):
+    back()
 def remove():
     file=open("telemetry/correct.tele", "w")
     file.write("0")
@@ -65,5 +67,6 @@ txt="Неверно:"+str(ncorrect)
 label=Label(root, image=crossx32, width=200, compound="left", text=txt, font=("Consolas",15), fg="red").pack(pady=10)
 buttonrem=Button(root, image=eraserx32, width=90, compound="left", text="Удалить", font=("Consolas", 11),command=remove)
 buttonrem.pack(pady=10)
+root.bind("<Escape>", backesc)
 #over
 root.mainloop()

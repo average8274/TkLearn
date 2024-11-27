@@ -73,6 +73,10 @@ def stats():
     else:
         root.destroy()
         os.system('python3 '+str(getcwd())+'/stats.pyw')
+def back():
+    root.destroy()
+def backesc(placeholder):
+    back()
 #interface setup
 labels_title=Label(root, text="Добро пожаловать в TkLearn!", font=("Consolas",22))
 labels_plain=Label(root)
@@ -92,5 +96,6 @@ label=Label(root).pack(pady=20)
 buttons_about.pack()
 #buttons_help.pack()
 buttons_githublink.pack(pady=100)
+root.bind("<Escape>", backesc)
 #over
 root.mainloop()

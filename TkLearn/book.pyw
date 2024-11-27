@@ -33,13 +33,15 @@ def back():
     else:
         root.destroy()
         os.system('python3 '+str(getcwd())+'/dictionary.pyw')
+def backesc(placeholder):
+    back()
 def add():
     a = "=" in entry1.get()
     b = "=" in entry2.get()
     value1=(entry1.get()).strip()
     value2=(entry2.get()).strip()
     if a == False and b == False:
-        file=open("dictionaries/"+dict+".dic", "a+")
+        file=open("dictionaries/"+dict+".dic", "a+", encoding="utf-8")
         value=(value1+"="+value2+"\n")
         file.write(value)
         file.close()
@@ -51,15 +53,17 @@ def add():
             os.system('python3 '+str(getcwd())+'/book.pyw')
     else:
         messagebox.showerror("Ошибка", "Значение не может содержать символ '=' ")
+def addret(placeholder):
+    add()
 def remove():
     values=listb.get(ACTIVE)
     path="dictionaries/"+dict+".dic"
     #file=open(path, "r+")
     #values=values+"\n"
     #file.replace(values,"")
-    with open(path, "r") as f:
+    with open(path, "r", encoding="utf-8") as f:
         lines = f.readlines()
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         for line in lines:
             if line.strip("\n") != values:
                 f.write(line)
@@ -80,12 +84,13 @@ buttonex=Button(root, image=backx32, width=35, compound="left", font=("Consolas"
 buttonsub=Button(root, image=pencilx32, width=90, compound="left", text="Внести", font=("Consolas", 11), command=add)
 buttonrem=Button(root, image=eraserx32, width=90, compound="left", text="Удалить", font=("Consolas", 11),command=remove)
 #grab .DIC file
-file=open("cache/dict.cache", "r")
+file=open("cache/dict.cache", "r", encoding="utf-8")
 dict=file.readline()
 file.close()
-file=open("dictionaries/"+dict+".dic", "r")
+file=open("dictionaries/"+dict+".dic", "r", encoding="utf-8")
 for line in file:
     listb.insert(END, line.replace("\n",""))
+file.close()
 #wrap up plain interface
 buttonex.pack(anchor="nw")
 listb.pack(side=LEFT, fill=BOTH)
@@ -95,6 +100,8 @@ label.place(x=300, y=100)
 entry2.place(x=320,y=100)
 buttonsub.place(x=250,y=150)
 buttonrem.place(x=250,y=250)
+root.bind("<Return>", addret)
+root.bind("<Escape>", backesc)
 #over
 root.mainloop()
 

@@ -28,17 +28,19 @@ def Os():
     return platform.system()
 if Os()=="Windows":
     root.iconbitmap("appicon-rendered.ico")
+def submissionret(placeholder):
+    submission()
 def submission():
     choice = cb.get()
     if choice in elements:
-        file=open("cache/dict.cache", "w", encoding="utf-8", )
+        file=open("cache/dict.cache", "w", encoding="utf-8")
         file.write(choice)
         file.close()
         a=entry.get()
         try:
             a=int(a)
             if a>=0:
-                file=open("cache/.num.cache", "w", encoding="utf-8", )
+                file=open("cache/.num.cache", "w", encoding="utf-8")
                 file.write(entry.get())
                 file.close()
                 if Os()=="Windows":
@@ -53,6 +55,8 @@ def submission():
             messagebox.showerror("Ошибка", "Введите натуральное число")
     else:
         messagebox.showerror("Ошибка", "Введено недействительное значение")
+def backesc(placeholder):
+    back()
 def back():
     if Os()=="Windows":
         os.startfile("Main.pyw")
@@ -93,6 +97,7 @@ cb.pack()
 label=Label(root, text="Количество вопросов", font=("Consolas", 15)).pack(pady=10)
 entry.pack()
 submit.pack(pady=10)
-
+root.bind("<Escape>", backesc)
+root.bind("<Return>", submissionret)
 #over
 root.mainloop()

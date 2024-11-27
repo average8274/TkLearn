@@ -35,6 +35,8 @@ def back():
     else:
         root.destroy()
         os.system('python3 '+str(getcwd())+'/Main.pyw')
+def backesc(placeholder):
+    back()
 #wrap up plain interface
 label=Label(root, text="Итог:", font=("Consolas",18)).pack(pady=10)
 file=open("cache/correct.cache", "r")
@@ -53,5 +55,6 @@ txt="Пропущено:"+str(total-ncorrect-correct)
 label=Label(root, image=arrowx32, width=250, compound="left", text=txt, font=("Consolas",15), fg="grey").pack(pady=10)
 button=Button(root, text="Выход", font=("Consolas",15), command=back)
 button.pack(pady=20)
+root.bind("<Escape>", backesc)
 #over
 root.mainloop()
