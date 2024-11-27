@@ -1,9 +1,12 @@
 #libraries
 from tkinter import *
 from tkinter import messagebox
-import subprocess
 import platform
 from tkinter import PhotoImage
+from tkinter import ttk
+import os
+from os import getcwd
+import platform
 #window setup
 root=Tk()
 ws = root.winfo_screenwidth() 
@@ -21,6 +24,8 @@ def Os():
     return platform.system()
 if Os()=="Windows":
     root.iconbitmap("appicon-rendered.ico")
+def backesc(placeholder):
+    back()
 def back():
     if Os()=="Windows":
         os.startfile("Main.pyw")
@@ -34,5 +39,6 @@ buttonex=Button(root, image=backx32, width=35, compound="left", font=("Consolas"
 
 #wrap up plain interface
 buttonex.pack(anchor="nw")
+root.bind("<Escape>", backesc)
 #over
 root.mainloop()

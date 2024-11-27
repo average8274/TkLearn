@@ -7,6 +7,7 @@ from tkinter import PhotoImage
 #import psutil
 from platform import uname
 import os
+from os import getcwd
 #window setup
 root=Tk()
 ws = root.winfo_screenwidth() 
@@ -30,12 +31,14 @@ def back():
         root.destroy()
     else:
         root.destroy()
-        os.system("python3 ~/Desktop/TkLearn/TkLearn/Main.pyw")
+        os.system('python3 '+str(getcwd())+'/Main.pyw')
+def backesc(placeholder):
+    back()
 #interface setup
 buttonex=Button(root, image=backx32, width=35, compound="left", font=("Consolas", 11),command=back)
 buttonex.pack(anchor="nw")
 #vars
-label=Label(root, text="Билд: v1.0.2 от 26-NOV-2024", font=("Consolas", 15)).pack()
+label=Label(root, text="Билд: v1.1rc1", font=("Consolas", 15)).pack()
 label=Label(root, text="Регулярно проверяйте наличие обновлений на GitHub", font=("Consolas", 15)).pack()
 label=Label().pack(pady=20)
 txt="Платформа: "+str(platform.system())
@@ -51,5 +54,6 @@ label=Label().pack(pady=20)
 label=Label(root, text="Мы не собираем никакой информации о вашей системе", font=("Consolas", 12)).pack()
 label=Label(root, text="Прикрепите скриншот этой страницы если хотите сообщить об ошибке", font=("Consolas", 12)).pack()
 label=Label(root, text="Это окно можно масштабировать", font=("Consolas", 12)).pack()
+root.bind("<Escape>", backesc)
 #over
 root.mainloop()

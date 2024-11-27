@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import messagebox
 import subprocess
 import os
+from os import getcwd
 import platform
 from tkinter import PhotoImage
 #window setup
@@ -37,7 +38,7 @@ for i in range(len(elements)):
 scrollbar = Scrollbar(root)
 scrollbar.pack(side=RIGHT, fill=Y)
 listb = Listbox(root, yscrollcommand=scrollbar.set, selectmode=SINGLE)
-file=open("dictionaries/.ini.dic", "r")
+file=open("dictionaries/.ini.dic", "r", encoding="utf-8")
 for line in file:                                               #list all elements in an array
     elements.append(line.replace("\n",""))
     listb.insert(END, line.replace("\n",""))
@@ -53,11 +54,13 @@ def back():
         root.destroy()
     else:
         root.destroy()
-        os.system("python3 ~/Desktop/TkLearn/TkLearn/dictionary.pyw") 
+        os.system('python3 '+str(getcwd())+'/dictionary.pyw')
+def backesc(placeholder):
+    back()
 def add():
     if entry.get() not in elements:
-        file=open("dictionaries/.ini.dic", "a+")
-        value=("\n"+entry.get())
+        file=open("dictionaries/.ini.dic", "a+", encoding="utf-8")
+        value=(entry.get()+"\n")
         file.write(value)
         file.close()
         if Os()=="Windows":
@@ -65,9 +68,11 @@ def add():
             root.destroy()
         else:
             root.destroy()
-            os.system("python3 ~/Desktop/TkLearn/TkLearn/editor.pyw")      
+            os.system('python3 '+str(getcwd())+'/editor.pyw')  
     else:
         messagebox.showerror("Ошибка", "Файл с таким именем уже существует")
+def addret(placeholder):
+    add()
 def remove():
     values=listb.get(ACTIVE)
     path1="dictionaries/.ini.dic"
@@ -76,9 +81,9 @@ def remove():
     #file=open(path, "r+")
     #values=values+"\n"
     #file.replace(values,"")
-    with open(path1, "r") as f:
+    with open(path1, "r", encoding="utf-8") as f:
         lines = f.readlines()
-    with open(path1, "w") as f:
+    with open(path1, "w", encoding="utf-8") as f:
         for line in lines:
             if line.strip("\n") != values:
                 f.write(line)
@@ -87,7 +92,7 @@ def remove():
         root.destroy()
     else:
         root.destroy()
-        os.system("python3 ~/Desktop/TkLearn/TkLearn/editor.pyw")
+        os.system('python3 '+str(getcwd())+'/editor.pyw')
 #interface setup
 buttonex=Button(root, image=backx32, width=35, compound="left", font=("Consolas", 11),command=back)
 buttonex.pack(anchor="nw")
@@ -101,6 +106,8 @@ scrollbar.config(command=listb.yview)
 entry.pack(pady=20)
 buttonsub.pack(pady=10)
 buttonrem.pack(pady=10)
+root.bind("<Escape>", backesc)
+root.bind("<Return>", addret)
 #over
 root.mainloop()
 

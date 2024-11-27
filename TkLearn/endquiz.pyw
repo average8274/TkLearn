@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import messagebox
 import subprocess
 import os
+from os import getcwd
 import platform
 from tkinter import PhotoImage
 #window setup
@@ -33,7 +34,9 @@ def back():
         root.destroy()
     else:
         root.destroy()
-        os.system("python3 ~/Desktop/TkLearn/TkLearn/Main.pyw")
+        os.system('python3 '+str(getcwd())+'/Main.pyw')
+def backesc(placeholder):
+    back()
 #wrap up plain interface
 label=Label(root, text="Итог:", font=("Consolas",18)).pack(pady=10)
 file=open("cache/correct.cache", "r")
@@ -52,5 +55,6 @@ txt="Пропущено:"+str(total-ncorrect-correct)
 label=Label(root, image=arrowx32, width=250, compound="left", text=txt, font=("Consolas",15), fg="grey").pack(pady=10)
 button=Button(root, text="Выход", font=("Consolas",15), command=back)
 button.pack(pady=20)
+root.bind("<Escape>", backesc)
 #over
 root.mainloop()

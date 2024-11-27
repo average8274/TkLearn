@@ -1,6 +1,7 @@
 #UNUSED, FILE RESERVED FOR NEW FUNCTIONS
 from tkinter import *
 import os
+from os import getcwd
 import platform
 root=Tk()
 root.title("Помощь")
@@ -29,7 +30,10 @@ def back():
         root.destroy()
     else:
         root.destroy()
-        os.system('python3 ~/Desktop/TkLearn/TkLearn/Main.pyw')
+        os.system('python3 '+str(getcwd())+'/Main.pyw')
+def backesc(placeholder):
+    back()
 button=Button(root, text="Назад", font=("Consolas", 11),command=back)
 button.pack(pady=10)
+root.bind("<Escape>", backesc)
 root.mainloop()

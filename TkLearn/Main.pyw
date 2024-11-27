@@ -6,6 +6,7 @@ from tkinter import messagebox
 from tkinter import PhotoImage
 import subprocess
 import os
+from os import getcwd
 import platform
 #vars
 
@@ -50,28 +51,32 @@ def about():
         root.destroy()
     else:
         root.destroy()
-        os.system("python3 ~/Desktop/TkLearn/TkLearn/about.pyw")
+        os.system('python3 '+str(getcwd())+'/about.pyw')
 def dictionary():
     if Os()=="Windows":
         os.startfile("dictionary.pyw")
         root.destroy()
     else:
         root.destroy()
-        os.system("python3 ~/Desktop/TkLearn/TkLearn/dictionary.pyw")
+        os.system('python3 '+str(getcwd())+'/dictionary.pyw')
 def quiz():
     if Os()=="Windows":
         os.startfile("quizselect.pyw")
         root.destroy()
     else:
         root.destroy()
-        os.system("python3 ~/Desktop/TkLearn/TkLearn/quizselect.pyw")
+        os.system('python3 '+str(getcwd())+'/quizselect.pyw')
 def stats():
     if Os()=="Windows":
         os.startfile("stats.pyw")
         root.destroy()
     else:
         root.destroy()
-        os.system("python3 ~/Desktop/TkLearn/TkLearn/stats.pyw")
+        os.system('python3 '+str(getcwd())+'/stats.pyw')
+def back():
+    root.destroy()
+def backesc(placeholder):
+    back()
 #interface setup
 labels_title=Label(root, text="Добро пожаловать в TkLearn!", font=("Consolas",22))
 labels_plain=Label(root)
@@ -91,5 +96,6 @@ label=Label(root).pack(pady=20)
 buttons_about.pack()
 #buttons_help.pack()
 buttons_githublink.pack(pady=100)
+root.bind("<Escape>", backesc)
 #over
 root.mainloop()

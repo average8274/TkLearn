@@ -4,6 +4,7 @@ from tkinter import messagebox
 from tkinter import ttk
 import subprocess
 import os
+from os import getcwd
 import platform
 from tkinter import PhotoImage
 #window setup
@@ -27,17 +28,19 @@ def Os():
     return platform.system()
 if Os()=="Windows":
     root.iconbitmap("appicon-rendered.ico")
+def submissionret(placeholder):
+    submission()
 def submission():
     choice = cb.get()
     if choice in elements:
-        file=open("cache/dict.cache", "w", encoding="utf-8", )
+        file=open("cache/dict.cache", "w", encoding="utf-8")
         file.write(choice)
         file.close()
         a=entry.get()
         try:
             a=int(a)
             if a>=0:
-                file=open("cache/.num.cache", "w", encoding="utf-8", )
+                file=open("cache/.num.cache", "w", encoding="utf-8")
                 file.write(entry.get())
                 file.close()
                 if Os()=="Windows":
@@ -45,20 +48,22 @@ def submission():
                     root.destroy()
                 else:
                     root.destroy()
-                    os.system("python3 ~/Desktop/TkLearn/TkLearn/quiz.pyw")
+                    os.system('python3 '+str(getcwd())+'/quiz.pyw')
             else:
                 messagebox.showerror("Ошибка", "Введите натуральное число")
         except:
             messagebox.showerror("Ошибка", "Введите натуральное число")
     else:
         messagebox.showerror("Ошибка", "Введено недействительное значение")
+def backesc(placeholder):
+    back()
 def back():
     if Os()=="Windows":
         os.startfile("Main.pyw")
         root.destroy()
     else:
         root.destroy()
-        os.system("python3 ~/Desktop/TkLearn/TkLearn/Main.pyw")
+        os.system('python3 '+str(getcwd())+'/Main.pyw')
 #interface setup
 buttonex=Button(root, text="Назад", font=("Consolas", 11),command=back)
 submit=Button(root, image=submitx32, width=150, compound="left", text="Подтвердить", font=("Consolas", 13), command=submission)
@@ -92,6 +97,7 @@ cb.pack()
 label=Label(root, text="Количество вопросов", font=("Consolas", 15)).pack(pady=10)
 entry.pack()
 submit.pack(pady=10)
-
+root.bind("<Escape>", backesc)
+root.bind("<Return>", submissionret)
 #over
 root.mainloop()

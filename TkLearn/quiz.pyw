@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import messagebox
 import subprocess
 import os
+from os import getcwd
 import platform
 #script handler, no interface
 
@@ -36,7 +37,7 @@ file.close()
 if Os()=="Windows":
     os.startfile("question.pyw")
 else:
-    os.system("python3 ~/Desktop/TkLearn/TkLearn/question.pyw")
+    os.system('python3 '+str(getcwd())+'/question.pyw')
 #window="0"
 #file=open("cache/window.cache", "w")
 #file.write(window)

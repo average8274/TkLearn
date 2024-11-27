@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import messagebox
 import subprocess
 import os
+from os import getcwd
 import platform
 from tkinter import PhotoImage
 #window setup
@@ -34,7 +35,9 @@ def back():
         root.destroy()
     else:
         root.destroy()
-        os.system("python3 ~/Desktop/TkLearn/TkLearn/Main.pyw")
+        os.system('python3 '+str(getcwd())+'/Main.pyw')
+def backesc(placeholder):
+    back()
 def remove():
     file=open("telemetry/correct.tele", "w")
     file.write("0")
@@ -47,7 +50,7 @@ def remove():
         root.destroy()
     else:
         root.destroy()
-        os.system("python3 ~/Desktop/TkLearn/TkLearn/stats.pyw")
+        os.system('python3 '+str(getcwd())+'/Main.pyw')
 #wrap up plain interface
 buttonex=Button(root, image=backx32, width=35, compound="left", font=("Consolas", 11),command=back)
 buttonex.pack(anchor="nw")
@@ -64,5 +67,6 @@ txt="Неверно:"+str(ncorrect)
 label=Label(root, image=crossx32, width=200, compound="left", text=txt, font=("Consolas",15), fg="red").pack(pady=10)
 buttonrem=Button(root, image=eraserx32, width=90, compound="left", text="Удалить", font=("Consolas", 11),command=remove)
 buttonrem.pack(pady=10)
+root.bind("<Escape>", backesc)
 #over
 root.mainloop()

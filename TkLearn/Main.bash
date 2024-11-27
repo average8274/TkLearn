@@ -1,1 +1,1 @@
-cd ~/Desktop/TkLearn/TkLearn/ && python3 Main.pyw
+python3 Main.pyw
