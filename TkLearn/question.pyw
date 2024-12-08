@@ -122,11 +122,11 @@ def submit():
             label=Label(root, image=tickx32, compound="left", fg="green", text="Верно!", font=("Consolas",18)).pack(pady=10)
         else:
             try:
-                file = open("dictionaries/mistakes.dic", "r", encoding="utf-8")
+                file = open("dictionaries/Ошибки.dic", "r", encoding="utf-8")
             except:
-                file = open("dictionaries/mistakes.dic", "w", encoding="utf-8")
+                file = open("dictionaries/Ошибки.dic", "w", encoding="utf-8")
             file.close()
-            file = open("dictionaries/mistakes.dic", "a+", encoding="utf-8")
+            file = open("dictionaries/Ошибки.dic", "a+", encoding="utf-8")
             file.write(word+"="+correct+"\n")
             file.close()    
             try:
@@ -157,7 +157,10 @@ def submit():
                 file.write("1")
             file.close()
             label=Label(root, image=crossx32, compound="left", fg="red", text="Неверно!", font=("Consolas",18)).pack(pady=10)
+            txt="Правильный ответ: "+correct
+            label=Label(root, text=txt, font=("Consolas",14)).pack(pady=10)
         exitbutton.pack(pady=20)
+        root.bind("<Escape>",skipesc)
     checked="1"
     file=open("cache/checked.cache","w", encoding="utf-8")
     file.write(checked)
