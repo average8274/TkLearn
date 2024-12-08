@@ -74,7 +74,6 @@ def remove():
         root.destroy()
         os.system('python3 '+str(getcwd())+'/book.pyw')
 #interface setup
-label=Label(root,text="=",font=("Consolas",14))
 entry1=Entry(root, width=15)
 entry2=Entry(root, width=15)
 scrollbar = Scrollbar(root)
@@ -91,7 +90,11 @@ file=open("dictionaries/"+dict+".dic", "r", encoding="utf-8")
 for line in file:
     listb.insert(END, line.replace("\n",""))
 file.close()
+dicti=dict
+txt="Редактирование",dicti
+label=Label(root,text=txt,font=("Consolas",14)).pack()
 #wrap up plain interface
+label=Label(root,text="=",font=("Consolas",14))
 buttonex.pack(anchor="nw")
 listb.pack(side=LEFT, fill=BOTH)
 scrollbar.config(command=listb.yview)
