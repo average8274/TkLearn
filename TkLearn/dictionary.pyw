@@ -77,22 +77,22 @@ mistakesIsInIni=False
 try:
     file=open("dictionaries/.ini.dic", "r", encoding="utf-8")
     for line in file:
-        if "mistakes" in line:
+        if "Ошибки" in line:
             mistakesIsInIni=True
     file=open("dictionaries/.ini.dic", "a", encoding="utf-8")
     if mistakesIsInIni==False:
-        file.write("mistakes"+"\n")
+        file.write("Ошибки"+"\n")
     file.close()
 except:
     print("doesn't exist")
     file=open("dictionaries/.ini.dic", "w", encoding="utf-8")
-    file.write("mistakes"+"\n")
+    file.write("Ошибки"+"\n")
     file.close()
 try:
-    file=open("dictionaries/mistakes.dic", "r", encoding="utf-8")
+    file=open("dictionaries/Ошибки.dic", "r", encoding="utf-8")
     file.close()
 except:
-    file=open("dictionaries/mistakes.dic", "w", encoding="utf-8")
+    file=open("dictionaries/Ошибки.dic", "w", encoding="utf-8")
     file.close()
 
 #########
