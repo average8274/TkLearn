@@ -12,25 +12,25 @@ import platform
 def Os():
     return platform.system()
 elements=[]
-file=open("cache/dict.cache", "r")
+file=open("cache/dict.cache", "r", encoding="utf-8")
 dict=file.readline()
 file.close()
-file=open("dictionaries/"+dict+".dic", "r")
+file=open("dictionaries/"+dict+".dic", "r", encoding="utf-8")
 for line in file:
     elements.append(line.replace("\n",""))
-file=open("cache/.num.cache", "r")
+file=open("cache/.num.cache", "r", encoding="utf-8")
 num=int(file.readline())
 file.close()
 current=1
 mistakes=0
 correct=0
-file=open("cache/correct.cache", "w")
+file=open("cache/correct.cache", "w", encoding="utf-8")
 file.write("0")
 file.close()
-file=open("cache/n-correct.cache", "w")
+file=open("cache/n-correct.cache", "w", encoding="utf-8")
 file.write("0")
 file.close()
-file=open("cache/current.cache", "w")
+file=open("cache/current.cache", "w", encoding="utf-8")
 file.write("1")
 file.close()
 #print("successfully identified the quiz")
